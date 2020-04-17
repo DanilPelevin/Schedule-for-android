@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    android:background="@drawable/backgroun"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="40dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/icon_stiks"
+        android:backgroundTint="#38323239"
+        android:onClick="ClickMe"
+        android:text="@string/buton1text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/weks"
+        android:textAllCaps="false"
+        android:textSize="25sp"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toEndOf="@+id/button1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonr"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rightarrow"
+        android:backgroundTint="#38323239"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonl"
+        android:layout_width="40dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/leftarrow"
+        android:backgroundTint="#38323239"
+        app:layout_constraintEnd_toStartOf="@+id/buttonr"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/weksdays"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button1">
+
+
+        <Button
+            android:id="@+id/day1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:onClick="Clickday1"
+            android:text="@string/day1" />
+
+        <Button
+            android:id="@+id/day2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:onClick="Clickday2"
+            android:text="@string/day2" />
+
+        <Button
+            android:id="@+id/day3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:onClick="Clickday3"
+            android:text="@string/day3" />
+
+        <Button
+            android:id="@+id/day4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:onClick="Clickday4"
+            android:text="@string/day4" />
+
+        <Button
+            android:id="@+id/day5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:onClick="Clickday5"
+            android:text="@string/day5" />
+
+        <Button
+            android:id="@+id/day6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:onClick="Clickday6"
+            android:text="@string/day6" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/daydate"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weksdays">
+
+        <TextView
+            android:id="@+id/day1date"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:text="@string/day1date"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:verticalScrollbarPosition="defaultPosition" />
+
+        <TextView
+            android:id="@+id/day2date"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/day2date" />
+
+        <TextView
+            android:id="@+id/day3date"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/day3date" />
+
+        <TextView
+            android:id="@+id/day4date"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/day4date" />
+
+        <TextView
+            android:id="@+id/day5date"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/day5date" />
+
+        <TextView
+            android:id="@+id/day6date"
+            android:layout_width="62dp"
+            android:layout_height="50dp"
+            android:layout_weight="0"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/day6date" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listtime"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/daydate" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

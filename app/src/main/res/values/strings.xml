@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Schedule</string>
+    <string name="title_activity_navigation">navigation</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
+    <string name="buton1text"> </string>
+    <string name="weks">0 неделя</string>
+    <string name="numbeweks"> </string>
+    <string name="day1">ПН</string>
+    <string name="day2">ВТ</string>
+    <string name="day3">СР</string>
+    <string name="day4">ЧТ</string>
+    <string name="day5">ПТ</string>
+    <string name="day6">СБ</string>
+    <string name="day1date">1</string>
+    <string name="day2date">2</string>
+    <string name="day3date">3</string>
+    <string name="day4date">4</string>
+    <string name="day5date">5</string>
+    <string name="day6date">6</string>
+</resources>
