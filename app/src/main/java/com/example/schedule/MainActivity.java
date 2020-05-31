@@ -2,6 +2,7 @@ package com.example.schedule;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.pm.ActivityInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,20 +18,29 @@ import org.jsoup.nodes.Document;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 //hi
     private ListView list;
-    private TextView textView;
+   // private TextView textView;
     private TextView textView2;
     public Document doc = null;
+    public Document weekTable = null;
+    public Document weekTable2 = null;
+    public Integer numberWeek;
     public String str = "ПН";
     int numberofgroup = 5;
     ArrayList<ArrayList<String>> table = new ArrayList<ArrayList<String>>();
     List<String> listt = new ArrayList<>();
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         list = (ListView) findViewById(R.id.listtime);
         MyTask mt = new MyTask();
         mt.execute();
+        //numberWeek = WhatWeekIsIt.setWeek(weekTable,weekTable2,textView2);
 
     }
 
@@ -50,15 +61,28 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
             try {
                 doc = Jsoup.connect("http://fkn.univer.omsk.su/academics/Schedule/schedule2_2.htm").get();
+                weekTable2 = Jsoup.connect("http://fkn.univer.omsk.su/academics/weeks2.htm").get();
+                weekTable = Jsoup.connect("http://fkn.univer.omsk.su/academics/weeks.htm").get();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             return null;
         }
+        @Override
+        protected void onPostExecute(Void result) {
+            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+            String dateText = dateFormat.format(new Date());
+            Calendar c = Calendar.getInstance();
+            m();
+            numberWeek = WhatWeekIsIt.setWeek(weekTable,weekTable2,textView2,dateText,c,dateFormat);
+        }
     }
+
+    //I have a problem's.
+
     public void  m () {
         if (doc != null) {
-            table = ParserWorkWithTable.basik(doc, textView);
+            table = ParserWorkWithTable.basik(doc);
             listt = ParserTestOutput.execute(table, str, numberofgroup);
             //title = doc.title();
             //textView2.setText(title);
@@ -115,9 +139,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ClickMe(View v) {
-        MyTask mt = new MyTask();
-        mt.execute();
-        m();
+        if (numberofgroup == 6){
+            numberofgroup = 2;
+        }else numberofgroup ++;
     }
 
 

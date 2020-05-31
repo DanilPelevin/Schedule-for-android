@@ -2,8 +2,6 @@ package com.example.schedule;
 
 /*Очевидно же ,что здесь происходит основная работа с таблицей.*/
 
-import android.widget.TextView;
-
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.jsoup.nodes.Element;
@@ -13,7 +11,7 @@ import java.util.ArrayList;
 
 public class ParserWorkWithTable {
 
-    public static ArrayList<ArrayList<String>> basik(Document doc, TextView textView) {
+    public static ArrayList<ArrayList<String>> basik(Document doc) {
         Elements table = doc.select("table");
         Elements trs = table.select("tr");
         ArrayList<ArrayList<String>> taba = new ArrayList<ArrayList<String>>();
@@ -57,9 +55,7 @@ public class ParserWorkWithTable {
             taba.add(stringg);
         }
         ArrayList<ArrayList<String>> ttable = new ArrayList<ArrayList<String>>();
-        ttable = ParserTableRevision.base(doc,taba,textView);
+        ttable = ParserTableRevision.base(doc,taba);
         return ttable;
-        //疲れたので、後でこの仕事をします。
-        //001010002800011100
     }
 }
