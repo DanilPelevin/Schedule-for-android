@@ -3,16 +3,13 @@ package com.example.schedule;
 /*Проблемма решение которой нашлось только таким способом.*/
 /* 奇妙な何か */
 
-import android.widget.TextView;
 
 import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
 
 public class ParserTableRevision {
-    public static ArrayList<ArrayList<String>> base(Document doc, ArrayList<ArrayList<String>> table, TextView textView) {
-        int tdsi = ParserTableSize.columnscount(doc, 0);
-        int trsi = ParserTableSize.rowcount(doc, 0);
+    public static ArrayList<ArrayList<String>> base(Document doc, ArrayList<ArrayList<String>> table) {
         ArrayList<ArrayList<String>> tablefin = new ArrayList<ArrayList<String>>();
         int x = 0;
         for (int i = table.size()-1; i > -1; i--) {
@@ -26,14 +23,14 @@ public class ParserTableRevision {
                     if (substr.equals(check)) {
                         String number = str.substring(3, 4);
                         int numbe = Integer.parseInt(number);
-                        //if (x-numbe > -1){
+
                             String str2 = table.get(i).get(j).substring(5);
                             stringfin.set(j,str2);
                             for (int t = 1 ; t < numbe ;t++){
                                 int xt = x-t;
                                 tablefin.get(xt).add(j,str2);
                             }
-                        //}
+
                     }
                 }
             }
