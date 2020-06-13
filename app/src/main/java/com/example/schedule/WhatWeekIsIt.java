@@ -7,8 +7,10 @@ import org.jsoup.nodes.Document;
 
 import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 
 public class WhatWeekIsIt {
@@ -54,5 +56,43 @@ public class WhatWeekIsIt {
             nubberWeek = search(tabWeek2, textView, datePN);
         }
         return nubberWeek;
+    }
+
+
+    public static Integer switchingDays(TextView textView, TextView day1date, TextView day2date, TextView day3date, TextView day4date, TextView day5date, TextView day6date, Integer numberWeek, Integer multiplier){
+        //TODO: Проблемы сдесь.
+        DateFormat dateFormat = new SimpleDateFormat("dd");
+        Calendar c = Calendar.getInstance();
+        String dateText = dateFormat.format(new Date());
+        String datePN = recurs(dateText,c,dateFormat);
+        try {
+            c.setTime(dateFormat.parse(datePN));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        //c.add(Calendar.DATE, 7*multiplier);
+        c.add(Calendar.DATE, 1);
+        datePN = dateFormat.format(c.getTime());
+        day1date.setText(datePN);
+        c.add(Calendar.DATE, 1);
+        String dateVT = dateFormat.format(c.getTime());
+        day2date.setText(dateVT);
+        c.add(Calendar.DATE, 1);
+        String dateSR = dateFormat.format(c.getTime());
+        day3date.setText(dateSR);
+        c.add(Calendar.DATE, 1);
+        String dateCHT = dateFormat.format(c.getTime());
+        day4date.setText(dateCHT);
+        c.add(Calendar.DATE, 1);
+        String datePT = dateFormat.format(c.getTime());
+        day5date.setText(datePT);
+        c.add(Calendar.DATE, 1);
+        String dateSB = dateFormat.format(c.getTime());
+        day6date.setText(dateSB);
+
+//        int n = numberWeek-multiplier*-1;
+//        String numWeek = String.valueOf(numberWeek);
+//        textView.setText(numWeek+" неделя");
+        return numberWeek;
     }
 }
