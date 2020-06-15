@@ -1,7 +1,5 @@
 package com.example.schedule;
 
-/*Очевидно же ,что здесь происходит основная работа с таблицей.*/
-
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.jsoup.nodes.Element;

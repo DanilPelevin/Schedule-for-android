@@ -31,7 +31,7 @@ public class WhatWeekIsIt {
         ArrayList<ArrayList<String>> tableW = new ArrayList<ArrayList<String>>();
         if (tabWeek != null) {
             tableW = ParserWorkWithTable.basik(tabWeek);
-        }else Toast.makeText(null,"私たちはすべてを失いました！in search week",Toast.LENGTH_LONG).show();
+        }else Toast.makeText(null,"Пустой док в поиске недель...",Toast.LENGTH_LONG).show();
         int number = 0;
         for (int j = 0; j < tableW.size(); j++) {
             String date = tableW.get(j).get(1);
@@ -60,7 +60,7 @@ public class WhatWeekIsIt {
 
 
     public static Integer switchingDays(TextView textView, TextView day1date, TextView day2date, TextView day3date, TextView day4date, TextView day5date, TextView day6date, Integer numberWeek, Integer multiplier){
-        //TODO: Проблемы сдесь.
+        //TODO: Этот код стоит переделать, он не правильный.
         DateFormat dateFormat = new SimpleDateFormat("dd");
         Calendar c = Calendar.getInstance();
         String dateText = dateFormat.format(new Date());
@@ -71,7 +71,7 @@ public class WhatWeekIsIt {
             e.printStackTrace();
         }
         //c.add(Calendar.DATE, 7*multiplier);
-        c.add(Calendar.DATE, 1);
+        //c.add(Calendar.DATE, 1);
         datePN = dateFormat.format(c.getTime());
         day1date.setText(datePN);
         c.add(Calendar.DATE, 1);

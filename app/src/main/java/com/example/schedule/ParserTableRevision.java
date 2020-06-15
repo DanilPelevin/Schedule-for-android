@@ -1,9 +1,5 @@
 package com.example.schedule;
 
-/*Проблемма решение которой нашлось только таким способом.*/
-/* 奇妙な何か */
-
-
 import org.jsoup.nodes.Document;
 
 import java.util.ArrayList;
@@ -42,5 +38,3 @@ public class ParserTableRevision {
 }
 
 
-
-/* Some things may come in handy someday. */
