@@ -29,4 +29,6 @@
     <string name="day5date">5</string>
     <string name="day6date">6</string>
     <string name="title_activity_nagation">nagation</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

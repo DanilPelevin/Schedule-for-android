@@ -15,10 +15,9 @@ import android.widget.Toast;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,14 +26,21 @@ import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-//hi
     private ListView list;
-   // private TextView textView;
+    public ListView list2;
     private TextView textView2;
+    public TextView day1date;
+    public TextView day2date;
+    public TextView day3date;
+    public TextView day4date;
+    public TextView day5date;
+    public TextView day6date;
     public Document doc = null;
     public Document weekTable = null;
     public Document weekTable2 = null;
     public Integer numberWeek;
+    public Integer numWeek;
+    public Integer multiplier = 0;
     public String str = "ПН";
     int numberofgroup = 5;
     ArrayList<ArrayList<String>> table = new ArrayList<ArrayList<String>>();
@@ -46,10 +52,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        //textView = (TextView) findViewById(R.id.textView1);
+        day1date = (TextView) findViewById(R.id.day1date);
+        day2date = (TextView) findViewById(R.id.day2date);
+        day3date = (TextView) findViewById(R.id.day3date);
+        day4date = (TextView) findViewById(R.id.day4date);
+        day5date = (TextView) findViewById(R.id.day5date);
+        day6date = (TextView) findViewById(R.id.day6date);
         textView2 = (TextView) findViewById(R.id.textView2);
         list = (ListView) findViewById(R.id.listtime);
+        list2 = (ListView) findViewById(R.id.listtime2);
         MyTask mt = new MyTask();
         mt.execute();
         //numberWeek = WhatWeekIsIt.setWeek(weekTable,weekTable2,textView2);
@@ -75,18 +86,15 @@ public class MainActivity extends AppCompatActivity {
             Calendar c = Calendar.getInstance();
             m();
             numberWeek = WhatWeekIsIt.setWeek(weekTable,weekTable2,textView2,dateText,c,dateFormat);
+            numWeek = WhatWeekIsIt.switchingDays(textView2, day1date, day2date, day3date, day4date, day5date, day6date, numberWeek, multiplier);
         }
     }
-
-    //I have a problem's.
 
     public void  m () {
         if (doc != null) {
             table = ParserWorkWithTable.basik(doc);
             listt = ParserTestOutput.execute(table, str, numberofgroup);
-            //title = doc.title();
-            //textView2.setText(title);
-        }else Toast.makeText(MainActivity.this,"私たちはすべてを失いました！",Toast.LENGTH_LONG).show();
+        }else Toast.makeText(MainActivity.this,"Документ почему то оказался пустым.",Toast.LENGTH_LONG).show();
         String[] myArray = new String[listt.size()];
         for (int i = 0; i < listt.size(); i++) {
             myArray[i] = listt.get(i);
@@ -138,7 +146,26 @@ public class MainActivity extends AppCompatActivity {
         m();
     }
 
+
+
+    public void ClickLeft(View v) {
+        //TODO: Метод для кнопки стрелка влево.
+//        MyTask mt = new MyTask();
+//        mt.execute();
+//        multiplier--;
+//        numWeek = WhatWeekIsIt.switchingDays(textView2, day1date, day2date, day3date, day4date, day5date, day6date, numberWeek, multiplier);
+    }
+
+    public void ClickRight(View v) {
+        //TODO: Метод для кнопки стрелка вправо.
+//        MyTask mt = new MyTask();
+//        mt.execute();
+//        multiplier++;
+//        numWeek = WhatWeekIsIt.switchingDays(textView2, day1date, day2date, day3date, day4date, day5date, day6date, numberWeek, multiplier);
+    }
+
     public void ClickMe(View v) {
+        //TODO: Метод для кнопки меню. Пока для удобства преверки переключает группы в таблице.
         if (numberofgroup == 6){
             numberofgroup = 2;
         }else numberofgroup ++;
